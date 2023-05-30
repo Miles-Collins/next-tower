@@ -1,0 +1,7 @@
+.navBar {
+  height: 10vh;
+  width: 100dvw;
+  align-items: center !important;
+  display: flex;
+  justify-content: space-between;
+}
