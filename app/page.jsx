@@ -6,21 +6,25 @@ import { getAllEvents } from "@/lib/eventsService.js";
 import Link from "next/link.js";
 import Footer from "@/components/Homepage/Footer.jsx";
 
-export const Events = async () => {
-  return getAllEvents();
-};
+// export const Events = async () => {
+//   return getAllEvents();
+// };
+
+export async function Events() {
+  return await getAllEvents();
+}
 
 export default async function Home() {
   const eventsData = await Events();
   const events = eventsData.map((e) => {
     return (
-      <div key={e.id}>
+      <div className={styles.eventCard} key={e.id}>
         <Link href={{ pathname: `/events/${e.id}` }}>
-          <div
-            style={{ backgroundImage: `url(${e?.coverImg})` }}
-            className={styles.eventCard}
-          ></div>
+          <img className={styles.items} src={e.coverImg} alt="Event Image" />
         </Link>
+        <div className={styles.details}>
+          <span>{e.name}</span>
+        </div>
       </div>
     );
   });

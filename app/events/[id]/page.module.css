@@ -1,0 +1,61 @@
+.bgImage {
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+.frosted {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.8px);
+  -webkit-backdrop-filter: blur(8.8px);
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.activeImage {
+  height: 40vh !important;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: auto;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+.coolBorder {
+  border: 1px solid #e9c46a;
+}
+
+.eventDetailsFont {
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.103);
+  color: #e9c46a !important;
+  text-shadow: 2px 2px 1px #000, -1px -1px 1px #000, 1px -1px 1px #000,
+    -1px 1px 1px #000, 1px 1px 1px #000;
+  width: 100%;
+}
+
+.eventDescriptionFont {
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.103);
+  color: #ffffff !important;
+  text-shadow: 2px 2px 1px #000, -1px -1px 1px #000, 1px -1px 1px #000,
+    -1px 1px 1px #000, 1px 1px 1px #000;
+  width: 100%;
+}
+
+.ticketsLeftFont {
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.103);
+  color: #d8cffc !important;
+  font-size: x-large;
+  text-shadow: 2px 2px 1px #000, -1px -1px 1px #000, 1px -1px 1px #000,
+    -1px 1px 1px #000, 1px 1px 1px #000;
+}
+
+.desc-height {
+  height: 50%;
+}

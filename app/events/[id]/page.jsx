@@ -1,61 +1,78 @@
 "use client";
 
-import { getEventById } from "@/lib/eventsService.js";
+import { getEventById, getTicketsByEventId } from "@/lib/eventsService.js";
 import { useParams } from "next/navigation";
+import styles from "./page.module.css";
+import Layout from "@/components/layout.js";
 
 export async function getEvent(id) {
   return await getEventById(id);
 }
 
+export async function getTickets(id) {
+  return await getTicketsByEventId(id);
+}
+
 export default async function EventDetailsPage() {
   const { id } = useParams();
   const event = await getEvent(id);
+  const tickets = await getTickets(id);
 
   return (
-    <div className="EventPage">
-      <div className="container-fluid">
-        <section className="row mx-2 my-3 eventDetailsFont rounded ">
-          <div
-            style={{
-              backgroundImage: `url(${event?.coverImg})`,
-            }}
-            className="rounded bg-active-image col-12"
-          >
-            <section className="frosted row">
-              <div className="col-12 col-md-4 d-flex align-items-center">
-                <img
-                  src={event?.coverImg}
-                  className="rounded img-fluid active-image-size coolBorder"
-                />
-              </div>
-              <div className="col-md-8">
-                <section className="row justify-content-between container-fluid mt-4">
-                  <div className="col-12 eventDetailsFont">
-                    <h1>{event.name} </h1>
-                    <h4>{event.location}</h4>
-                  </div>
-                  <div className="col-md-5">
-                    <h1>{event.startDate}</h1>
-                  </div>
-                </section>
-                <section className="row desc-height container-fluid">
-                  <div className="col-md-12 p-2">
-                    <p>{event.description}</p>
-                  </div>
-                </section>
-                <section className="row justify-content-between container-fluid">
-                  <div className="col-md-5">
-                    <h6>
-                      <span className="ticketsLeftFont"></span> spots left
-                    </h6>
-                  </div>
-                  <div className="col-md-4 text-end"></div>
-                </section>
-              </div>
-            </section>
-          </div>
-        </section>
+    <Layout>
+      <div className="EventPage">
+        <div className="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4">
+          <section className="flex flex-wrap mx-2 my-3 rounded">
+            <div
+              style={{
+                backgroundImage: `url(${event?.coverImg})`,
+              }}
+              className={styles.bgImage}
+            >
+              <section className={styles.frosted}>
+                <div className="w-full md:w-1/3 pr-4 pl-4 flex items-center">
+                  <img
+                    className={styles.activeImage}
+                    src={event?.coverImg}
+                    alt="Event Photo"
+                  />
+                </div>
+                <div className="md:w-2/3 pr-4 pl-4">
+                  <section className="flex flex-wrap justify-between container mx-auto sm:px-4 max-w-full mx-auto sm:px-4 mt-4">
+                    <div className={styles.eventDetailsFont}>
+                      <div>
+                        <h1>{event.name} </h1>
+                        <h4>{event.location}</h4>
+                      </div>
+                      <div>
+                        <h1>{event.startDate}</h1>
+                      </div>
+                    </div>
+                  </section>
+                  <section className="flex flex-wrap h-4/6 container mx-auto sm:px-4 max-w-full">
+                    <div className="md:w-full pr-4 pl-4 p-2">
+                      <p className={styles.eventDescriptionFont}>
+                        {event.description}
+                      </p>
+                    </div>
+                  </section>
+                  <section className="w-full justify-between container mx-auto sm:px-4 max-w-full">
+                    <div className="md:w-2/5 pr-4 pl-4">
+                      <h6>
+                        <span className={styles.ticketsLeftFont}>
+                          {event.capacity}
+                        </span>{" "}
+                        spots left
+                      </h6>
+                    </div>
+                    <div className="md:w-1/3 pr-4 pl-4 text-end"></div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
