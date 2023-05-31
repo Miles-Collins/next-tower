@@ -2,4 +2,10 @@
   height: 35vh;
   background-size: cover;
   background-position: center;
+  border-radius: 15px;
+}
+
+.eventCard:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }

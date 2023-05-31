@@ -1,6 +1,6 @@
 .navBar {
   height: 10vh;
-  width: 100dvw;
+  width: 100%;
   align-items: center !important;
   display: flex;
   justify-content: space-between;

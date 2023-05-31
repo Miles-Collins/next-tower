@@ -1,13 +1,13 @@
 .sortBar {
   height: 10dvh;
-  width: 100dvw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn {
-  width: 150px;
+  width: 140px;
   height: 35px;
   border: 3px solid antiquewhite;
   color: antiquewhite;
