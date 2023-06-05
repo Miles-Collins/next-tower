@@ -1,0 +1,28 @@
+.navButton {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.navButton::before {
+  margin-left: auto;
+}
+
+.navButton::after,
+.navButton::before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  transition: 0.5s;
+}
+
+.navButton:hover::after,
+.navButton:hover::before {
+  width: 100%;
+}
